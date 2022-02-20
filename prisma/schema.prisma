@@ -12,8 +12,36 @@ datasource db {
 
 model User {
   id        Int      @id @default(autoincrement())
-  email     String   @unique
-  password  String
-  name      String?
+  userAdd   String   @unique
+  userName  String?
   createdAt DateTime @default(now())
+
+  // @@map so tt table name will come out as users - which is SQL naming convention - rather than User which is the name of the model here...
+  // autocreated... think this is linking User to Token and Bid
+  Token Token[]
+  Bid   Bid[]
+  @@map("users")
+}
+
+model Token {
+  // don't want an autoincreasing id... want to use tokenId from blockchain directly here
+  tokenId   Int      @id
+  owner     User     @relation(fields: [ownerId], references: [id])
+  ownerId   Int
+  createdAt DateTime @default(now())
+  Bid       Bid[]
+
+  @@map("tokens")
+}
+
+model Bid {
+  id        Int      @id @default(autoincrement())
+  bidAmt    Int
+  token     Token    @relation(fields: [tokenId], references: [tokenId])
+  tokenId   Int
+  bidder    User     @relation(fields: [bidderId], references: [id])
+  bidderId  Int
+  createdAt DateTime @default(now())
+
+  @@map("bids")
 }
