@@ -46,7 +46,7 @@ class StartController extends BaseController {
     try {
       const editedUser = await this.prisma.User.update({
         where: { userAdd },
-        data: {userName}
+        data: { userName }
       });
       // console.log("This is editedUser", editedUser);
       res.send(editedUser);

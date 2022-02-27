@@ -15,7 +15,9 @@ model User {
   userAdd   String   @unique
   userName  String?
   createdAt DateTime @default(now())
-
+  // buyer and seller field required to enable Message table to link twice to User table
+  buyer Message[] @relation("buyer")
+  seller Message[] @relation("seller")
   // @@map so tt table name will come out as users - which is SQL naming convention - rather than User which is the name of the model here...
   // autocreated... think this is linking User to Token and Bid
   Token Token[]
@@ -44,4 +46,17 @@ model Bid {
   createdAt DateTime @default(now())
 
   @@map("bids")
+}
+
+model Message {
+  // Can't use same relation to same field
+  id Int @id @default(autoincrement())
+  buyer User          @relation("buyer", fields: [buyerId], references: [userAdd])
+  buyerId String      
+  seller User         @relation("seller", fields: [sellerId], references: [userAdd])
+  sellerId String    
+  nftId String
+  messageData String
+
+  @@map("messages")
 }
