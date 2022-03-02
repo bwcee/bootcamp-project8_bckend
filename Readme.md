@@ -5,6 +5,7 @@
 CloseLand is a NFT marketplace platform where users can create, buy and trade NFT. The project was completed as part of Rocket Academy Project 5 for 2 weeks.
 
 The technology stack used for our project are as follow:
+
 <ins>Frontend</ins>
 
 1. React.js
