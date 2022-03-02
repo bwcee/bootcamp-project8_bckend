@@ -25,9 +25,9 @@ The technology stack used for our project are as follow:
 
 <ins>Links to Repositories</ins>
 
-- Frontend: [Link] (https://github.com/daves77/bootcamp-project8-react)
-- Backend: [Link] (https://github.com/bwcee/bootcamp-project8_bckend)
-- Backend: [Link] (https://github.com/daves77/project-8-contract)
+- Frontend: [Link](https://github.com/daves77/bootcamp-project8-react)
+- Backend: [Link](https://github.com/bwcee/bootcamp-project8_bckend)
+- Backend: [Link](https://github.com/daves77/project-8-contract)
 
 ## Usage
 
@@ -79,7 +79,7 @@ REACT_APP_PINATA_SECRET='YOUR_PINATA_SECRET'
 
 <ins>MetaMask</ins>
 
-1. [Guide] (https://devtonight.com/posts/metamask-testnet-wallet-setup-for-blockchain-development#:~:text=Add%20Custom%20Testnet%20Networks%20To,%2C%20RPC%20URL%2C%20chain%20ID) to create metamask and connect to localhost.
+1. [Guide](https://devtonight.com/posts/metamask-testnet-wallet-setup-for-blockchain-development#:~:text=Add%20Custom%20Testnet%20Networks%20To,%2C%20RPC%20URL%2C%20chain%20ID) to create metamask and connect to localhost.
 2. Connect your metamask wallet to localhost with the following config:
 
 ```
