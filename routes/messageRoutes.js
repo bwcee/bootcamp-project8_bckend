@@ -1,17 +1,14 @@
 const express = require('express')
 
-const startRouters = express.Router();
+const router = express.Router();
 
-function startRoutesFunc(controller) {
-  startRouters.get("/", controller.getUsers.bind(controller));
-  startRouters.get("/:userAddress", controller.getUserByAdd.bind(controller));
-  startRouters.post("/", controller.doCreateUser.bind(controller));
-  startRouters.put("/", controller.editUserByAdd.bind(controller));
-  // Test if server working to receive message
-  startRouters.get("/test", (req, res) => {
-    res.send('<h1>Hello world</h1>');
-  });
-  return startRouters;
+function messageRouter(controller) {
+  // router.get("/", controller.createChat.bind(controller));
+  // router.get("/:userAddress", controller.getUserByAdd.bind(controller));
+  // router.post("/", controller.doCreateUser.bind(controller));
+  // router.put("/", controller.editUserByAdd.bind(controller));
+
+  return router;
 }
 
-module.exports = startRoutesFunc
+module.exports = messageRouter

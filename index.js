@@ -19,6 +19,7 @@ const MessageController = require('./controllers/messageCtrl.js')
 
 /* initiate/create instance of controllers */
 const startControl = new StartController(prisma);
+const messageControl = new MessageController(prisma);
 
 /* Initialise Express instance */
 const app = express();
@@ -29,7 +30,7 @@ const server = http.createServer(app);
 const { Server } = require("socket.io");
 const io = new Server(server);
 const initialiseChatSockets = require('./utils/chat.js');
-initialiseChatSockets(io);
+
 
 
 /* Expose the files stored in the public folder */
@@ -46,6 +47,8 @@ app.use(cors({
 
 /* Routes */
 app.use("/", startRoutes(startControl));
+app.use("/message", messageRoutes(messageControl));
+
 
 // Set Express to listen on the given port
 const PORT = process.env.PORT || 3004;
